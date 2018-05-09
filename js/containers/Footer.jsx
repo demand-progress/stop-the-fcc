@@ -70,6 +70,10 @@ function Footer(){
                             <a target="_blank">
                                 <img alt="Open Media" src="images/open-media.jpg" />
                             </a>
+                            
+                            <a target="_blank">
+                                <img alt="People Demanding Action" src="images/Logo-PeopleDemandingAction.jpg" />
+                            </a>
 
                             <a target="_blank">
                                 <img alt="People For the American Way" src="images/PFAW.png" />
