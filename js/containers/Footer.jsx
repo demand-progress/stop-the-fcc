@@ -129,7 +129,7 @@ function Footer(){
                                 </p>
                             </div>
                             <div className="social-media">
-                                <a className="twitter" href="https://twitter.com/intent/tweet?text=Call%20Congress%21%20Tell%20them%20they%20must%20vote%20%E2%80%98yes%E2%80%99%20on%20the%20CRA%20resolution%20to%20save%20the%20open%20internet%20and%20restore%20%23NetNeutrality%20https%3A%2F%2Fstopthefcc.net%2F" target="_blank">
+                                <a className="twitter" href="https://twitter.com/intent/tweet?text=This%20is%20a%20%23RedAlert%21%20The%20Senate%20will%20vote%20soon%20on%20%23NetNeutrality.%20Contact%20Congress%20TODAY%20and%20tell%20them%20they%20must%20vote%20%E2%80%98YES%E2%80%99%20on%20the%20CRA%20resolution%20to%20save%20the%20open%20internet%20https%3A%2F%2Fstopthefcc.net%2F%20" target="_blank">
                                     <img src="images/twitter_white.svg" />
                                     <span>Share on twitter</span>
                                 </a>
