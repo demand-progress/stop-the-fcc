@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { CONF, URLS } from '../config';
 import { getQueryVariables } from '../utils';
 import Responsive from 'react-responsive-decorator';
+import { allText } from '../textObj.js'
 
 
 class Form extends Component {
@@ -35,16 +36,18 @@ class Form extends Component {
       let topOfPage = null;
       let middle = null; 
 
-      const header = (
+      let { headerText, subHeaderText, disclaimer, modalText } = allText;
+
+      const subHeader = (
         <div>   
           <div style={{color: 'white', lineHeight: 1.5}}>
             <strong style={{ fontSize: "25px" }}>
-            The FCC voted to let Big Cable ruin the internet. But on Wednesday, May 16th, the Senate will vote on a resolution to overturn the FCC and restore net neutrality
+            { subHeaderText.headerText }
             </strong>
-              <br/><br/>
-              <div>As of now, 50 senators have said they will vote ‘yes,’ and we need just 51 to guarantee victory. </div>
+            <br/><br/>
+              <div>{ subHeaderText.subHeader }</div>
               <br/>
-              <div>It’s go time! Contact Congress today.</div>
+              <div>{ subHeaderText.subSubHeader }</div>
           </div>
         </div>
       )
@@ -66,43 +69,44 @@ class Form extends Component {
           </button>
         </div>
       </form>
-      <span><i>One or more of the participating organizations (listed at bottom) may email you about their campaigns.</i></span>
+      <span><i>{disclaimer}</i></span>
       <br/><br/>
       </div>
       )
       
       if(this.state.isMobile){
         topOfPage = form
-        middle = header
+        middle = subHeader
         } else {
-        topOfPage = header
+        topOfPage = subHeader
         middle = form
       }
 
       if(this.state.submitted) {
+        const { h1, p1, p21, p22, p3, p4} = modalText
         modal = (
               <div id="thanks" className="modal-wrapper-thanks modal-open-thanks" style={{ 'display' : this.state.submitted ? 'block' : 'none'}}>
               <div className="modal-thanks">
                 <a className="close-thanks" href="#" onClick={ this.closeModal }>×</a>
                 <header>
-                  <h2 id="modal-header-thanks" style={{ fontFamily: 'Montserrat, sans-serif'}}>Thanks for signing.</h2>
+                  <h2 id="modal-header-thanks" style={{ fontFamily: 'Montserrat, sans-serif'}}>{h1}</h2>
                 </header>
-                <article style={{}}>
+                <article>
                   <p>
                     <p className="header-thanks" style={{ fontFamily: 'Montserrat, sans-serif', textDecorationLine: "underline"}}>
-                    Please call Congress and tell your lawmakers to overturn the FCC and restore net neutrality:  
+                    {p1}
                   </p>
                 </p>
                   <p id="call" style={{ marginTop: '0.5em', fontWeight: 'bold', fontFamily: 'Montserrat, sans-serif'}}>Call Now: <a style={{color: 'black'}}href="tel:8582640403">858-264-0403</a></p>
                   <p>
                     <br/>
-                    <p style={{fontSize: '14px', fontFamily: 'Montserrat, sans-serif'}}>We’ll connect you to your lawmakers.  You can use this script — just introduce yourself, be polite, and say: <i>"I support Title Two net neutrality and I urge you to vote for the ‘resolution of disapproval’ to restore net neutrality."</i></p>
+                    <p style={{fontSize: '14px', fontFamily: 'Montserrat, sans-serif'}}>{p21} <i>{p22}</i></p>
                     <br/>
                     <p className="header-thanks" style={{ fontFamily: 'Montserrat, sans-serif', textDecorationLine: "underline"}}>
-                    Attend an event on Monday: 
+                    {p3}
                     </p>
                     <br/>
-                    <p style={{fontSize: '14px', fontFamily: 'Montserrat, sans-serif'}}>On May 14th, activists across the country will be gathering outside of the offices of key lawmakers.  Please sign up for an event near you here (or consider hosting one if there isn't one near you yet):</p>
+                    <p style={{fontSize: '14px', fontFamily: 'Montserrat, sans-serif'}}>{p4}</p>
                     <br/>
                     <a style={{ fontFamily: 'Montserrat, sans-serif'}} id="modal-battle-link" href="https://events.battleforthenet.com" target="_blank">https://events.battleforthenet.com</a>
                   </p>
@@ -118,8 +122,8 @@ class Form extends Component {
       
         return (
           <div className="bftn-form call-action-form" onSubmit={ this.onSubmit }>
-            <h3>Red Alert:</h3>
-            <h3>Tell the Senate to Restore Net Neutrality!</h3>
+            <h3>{headerText.headerText}</h3>
+            <h3>{headerText.subHeader}</h3>
             <br/><br/>
             {topOfPage}
             {middle}
@@ -217,7 +221,7 @@ class Form extends Component {
             form.appendChild(input);
         });
 
-        form.submit()
+        // form.submit()
         this.setState({ submitted: true });
     }
 
