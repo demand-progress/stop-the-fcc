@@ -39,7 +39,7 @@ class Form extends Component {
         <div>   
           <div style={{color: 'white', lineHeight: 1.5}}>
             <strong style={{ fontSize: "25px" }}>
-            The FCC voted to let Big Cable ruin the internet. But next week the Senate is expected to vote on a resolution to overturn the FCC and restore net neutrality.  
+            The FCC voted to let Big Cable ruin the internet. But on Wednesday, May 16th, the Senate will vote on a resolution to overturn the FCC and restore net neutrality
             </strong>
               <br/><br/>
               <div>As of now, 50 senators have said they will vote ‘yes,’ and we need just 51 to guarantee victory. </div>
@@ -174,7 +174,7 @@ class Form extends Component {
             alert('Please enter a valid Zipcode.');
             return;
         }
-
+        console.log(this.state)
         const fields = {
             'action_user_agent': navigator.userAgent,
             'country': 'United States',
